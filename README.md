@@ -33,23 +33,45 @@ Created comprehensive REST APIs for task management, all wrapped in authenticati
 -   Proper token validation and user authorization
 -   Secure API endpoints with proper error handling
 
+## Database Setup
+
+**Important:** After running migrations, make sure to seed the database to create the test user.
+
+# Seed the database (IMPORTANT - creates test user)
+
+php artisan db:seed (after you migrate the db)
+
+```
+
+### Test User Credentials
+
+- **Email:** test@example.com
+- **Password:** password123
+
+Use these credentials to login via the `/api/login` endpoint.
+
 ## API Endpoints
 
 ### Authentication
 
 ```
+
 POST /api/login
-- Body: { email, password }
-- Response: { token, user }
+
+-   Body: { email, password }
+-   Response: { token, user }
+
 ```
 
 ### Tasks
 
 ```
-GET    /api/tasks          - Get all tasks (authenticated)
-POST   /api/tasks          - Create new task (authenticated)
-DELETE /api/tasks/{id}     - Delete task (authenticated)
-PATCH  /api/tasks/{id}/toggle - Toggle task status (authenticated)
+
+GET /api/tasks - Get all tasks (authenticated)
+POST /api/tasks - Create new task (authenticated)
+DELETE /api/tasks/{id} - Delete task (authenticated)
+PATCH /api/tasks/{id}/toggle - Toggle task status (authenticated)
+
 ```
 
 ## Future Improvements
@@ -60,3 +82,4 @@ If I had more time, I would:
 -   Implement task filtering and search
 -   Add task categories/tags
 -   Implement task assignment to users
+```
